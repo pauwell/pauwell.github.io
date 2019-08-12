@@ -79,7 +79,7 @@ main {
 main article {
   width: 65%;
   float: left;
-  margin-top: 1.3em;
+  margin-top: 2.3em;
 }
 
 /* Articles take the full width on screens smaller than tablet. */
@@ -98,7 +98,7 @@ main article {
 main aside {
   width: 33%;
   float: right;
-  margin-top: 1.3em;
+  margin-top: 2.3em;
 }
 
 /* Hide side-bar on screens smaller than tablet. */
@@ -108,7 +108,7 @@ main aside {
   }
 }
 
-#c8s-example{
+#c8s-example {
   height: 350px;
 }
 

@@ -31,8 +31,8 @@ function toggleMenu() {
 }
 
 // Add sticky class to navbar when its scrolled down.
-window.addEventListener("scroll", function() {
-  if (window.pageYOffset >= navbar.offsetTop) {
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset >= (navbar.offsetTop - 5)) {
     navbar.classList.add("sticky");
     buttonMenuIcon.classList.add("sticky");
   } else {
@@ -42,7 +42,7 @@ window.addEventListener("scroll", function() {
 });
 
 // Show `home`-content on startup.
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   hideContent();
   contentHome.style.display = "block";
 });
@@ -63,28 +63,28 @@ function hideContent() {
 }
 
 // Show `home`-content.
-buttonContentHome.addEventListener("click", function() {
+buttonContentHome.addEventListener("click", function () {
   hideContent();
   contentHome.style.display = "block";
 });
 // Show `tinytemplates`-content.
-buttonContentTiny.addEventListener("click", function() {
+buttonContentTiny.addEventListener("click", function () {
   hideContent();
   contentTiny.style.display = "block";
 });
 // Show `chip8`-content.
-buttonContentChip.addEventListener("click", function() {
+buttonContentChip.addEventListener("click", function () {
   hideContent();
   contentChip.style.display = "block";
 });
 // Show `downloads`-content.
-buttonContentDownload.addEventListener("click", function() {
+buttonContentDownload.addEventListener("click", function () {
   hideContent();
   contentDownload.style.display = "block";
 });
 
 // Handle click on menu-icon.
-buttonMenuIcon.addEventListener("click", function() {
+buttonMenuIcon.addEventListener("click", function () {
   toggleMenu();
 });
 
@@ -98,10 +98,10 @@ let tinyCounter = new TinyTemplate(
   },
   {
     // Methods
-    increaseNumber: function() {
+    increaseNumber: function () {
       this.changeState({ number: this.getState("number") + 1 });
     },
-    reset: function() {
+    reset: function () {
       this.changeState({ number: 0 });
     }
   }, // Template-view
@@ -122,7 +122,7 @@ tinyCounter.mount(document.getElementById("tinytemplates-example"));
 let c8sdemo = null;
 let demo_node = document.querySelector("#c8s-example");
 
-let run_demo = function() {
+let run_demo = function () {
   if (demo_node.hasChildNodes()) demo_node.removeChild(demo_node.firstChild);
 
   c8sdemo = new GDemo("#c8s-example");
