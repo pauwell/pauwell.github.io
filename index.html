@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--
+  pauwel-io | MIT License | https://github.com/pauwell/pauwell.github.io
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pauwel.io - Home</title>
+
+  <!-- Styles. -->
+  <link rel="stylesheet" type="text/css" href="css/animation.css" />
+  <link rel="stylesheet" type="text/css" href="css/color.css" />
+  <link rel="stylesheet" type="text/css" href="css/font.css" />
+  <link rel="stylesheet" type="text/css" href="css/image.css" />
+  <link rel="stylesheet" type="text/css" href="css/layout.css" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+
+
+  <!-- Fonts. -->
+  <!--<link href="https://fonts.googleapis.com/css?family=Cardo|Raleway" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Work+Sans" rel="stylesheet">
+
+  <!-- Glorious demo -->
+  <link rel="stylesheet" href="https://unpkg.com/@glorious/demo/dist/gdemo.min.css">
+  <script src="https://unpkg.com/@glorious/demo/dist/gdemo.min.js"></script>
+
+  <!-- HightlightJS. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/handlebars.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css" />
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+  <!-- This node gets removed from `main.js`. -->
+  <p id="js-disabled" style="background: red;color: white;">Please enable javascript for the full browsing experience.</p>
+
+  <!-- Page wrapper. -->
+  <div class="page">
+
+    <!-- Header. -->
+    <header>&nbsp;pauwel.io
+      <!-- Menu icon. -->
+      <div class="menu-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </header>
+
+
+
+    <!-- Navigation. -->
+    <nav>
+      <a href="#" class="hidden" for="content-home">Home</a>
+      <a href="#" class="hidden" for="content-tinytemplates">Tiny Templates</a>
+      <a href="#" class="hidden" for="content-chip8">Chip 8</a>
+      <a href="#" class="hidden" for="content-download">Download</a>
+    </nav>
+
+    <!-- Main. -->
+    <main role="main">
+
+      <!-- Content for `home` -->
+      <div id="content-home">
+
+        <!-- Articles. -->
+        <article>
+          <section>
+            <h1>Chip-8 Script</h1>
+            <div class="section-meta-data">04/11/2018</div>
+            <p>
+              Today I finished the first executable version of my little c8s-compiler (<em>c8s = Chip-8 script</em>). It
+              converts a tiny custom scripting language called <em>Chip-8 Script</em> into chip-8 machinecode. <em>C8s</em>
+              has a very limited set of features, since on the one hand Chip-8 has only 35 instructions of its own and on the other hand,
+              my goal was to generate as little overhead as possible through low abstraction.
+            </p>
+            <p><b>Currently supported features:</b></p>
+            <p>
+              Create variables with the keyword <em>var</em>. There can only be a maximum of 15 total due to Chip-8's limitations.
+              <pre><code>VAR a = 10
+VAR b = a
+              </code></pre>
+            </p>
+            <p>
+              If-statements can have the following forms of condition: <code>V[x]==n, v[x]!=n, v[x]==V[y] </code>
+              <pre><code>IF a == 0:
+  ...
+ENDIF
+              </code></pre>
+            </p>
+            <p>
+              For-loops define an index-variable that counts to the value behind <em>to</em> and increases by the value behind
+              <em>step</em>.
+              <pre><code>FOR i=0 TO 10 STEP 2:
+  ...
+ENDFOR
+              </code></pre>
+            </p>
+            <p>
+              <div id="c8s-example"></div>
+            </p>
+          </section>
+          <section>
+            <h1>On learning to program</h1>
+            <div class="section-meta-data">22/10/2018 by Test Author</div>
+            <p>
+              Hello mellow
+            </p>
+          </section>
+        </article>
+
+        <aside>
+          <h1>Welcome</h1>
+          <p>
+            Hey! I am Paul and like to write free software. Please have a look at my projects. You can download all of them our check
+            out the full source code on GitHub.
+          </p>
+          <p>Overview:</p>
+          <ul>
+            <li>Some information</li>
+            <li>More information</li>
+          </ul>
+        </aside>
+
+      </div>
+      <!-- #content-home -->
+
+      <!-- Content for `tinytemplates`. -->
+      <div id="content-tinytemplates">
+        <article>
+          <section>
+            <h1>TinyTemplatesJS</h1>
+            <p>
+              <em>TinyTemplates</em> is a tiny templating engine in javascript that lets you create reusable, reactive components
+              that can be rendered and updated in the DOM. The templates are using standard HTML syntax combined with a few
+              additional nodes that work as statements (<code>if</code>) or loops (<code>for</code>,
+              <code>foreach</code>). Data, that needs to be reactive, is stored as <em>state</em>
+              that embeds in the view to get updated if any changes are made to the data.
+              <a href="https://github.com/fiduswriter/diffDOM">diffDOM</a> is used to detect and patch these changes. Please
+              have a look at the example below for a better understanding of the syntax.
+            </p>
+          </section>
+
+          <section>
+            <h3>Example</h3>
+            <pre><code class="javascript">let counter = new TinyTemplate( 
+    // Name
+  "counter", 
+  { // State
+    number: 0 
+  },
+  { // Methods
+    increaseNumber: function() {
+      this.changeState({ number: this.getState("number") + 1 });
+    },
+    reset: function() {
+      this.changeState({ number: 0 });
+    }
+  },// Template-view
+  `&lt;div class="counter&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;&lt;b&gt;Counter&lt;/b&gt;&lt;/legend&gt;
+        &lt;p&gt;Counting: {{number}}&lt;/p&gt;
+        &lt;button on-event="onclick" call="increaseNumber"&gt;Increment&lt;/button&gt;
+        &lt;button on-event="onclick" call="reset"&gt;Reset&lt;/button&gt;
+        &lt;/fieldset&gt;
+    &lt;/div&gt;`
+);
+
+// Mount the template to a root node to add it to the DOM.
+counter.mount(document.getElementById("root-node-id"));
+        </code></pre>
+          </section>
+
+          <section>
+            <h3>Result</h3>
+            <div id="tinytemplates-example"></div>
+          </section>
+
+          <section>
+            <h2>Overview</h2>
+          </section>
+          <section>
+            <h3>Mustaches</h3>
+
+            The identifiers inside double mustaches are replaced by their corresponding value in the state-object. If the parser can
+            not find a corresponding value in the state-object, it searches for local variables with the same name and replaces
+            it. It is also possible to access the properties of those variables:
+
+            <pre><code class="mustaches">&lt;p&gt;Access: {{stateObject}}&lt;/p&gt;
+&lt;p&gt;Access: {{localVariable}}&lt;/p&gt;
+&lt;p&gt;Access: {{localVariable.property}}&lt;/p&gt;
+            </code></pre>
+            <h3>State-changes</h3>
+
+            <p>If you want to change the value of a variable from the state-object (e.g. `name`), you need to call <code>this.changeState({name: 'NewName'})</code>.
+              This way the engine registers the specific updates to the data to trigger a reparsing and change the parts
+              of the DOM that are affected by the updates.</p>
+            <pre><code class="javascript">this.changeState({ number: this.getState("number") + 1 });</code></pre>
+
+            <h3>If</h3>
+            <p>
+              The body of an <code>if</code> statement only gets rendered when the condition (<code>expr</code>) inside the
+              braces (<code>this.getState('payment') === 'visa'</code>) evaluates to true. The statement ends with a
+              <code>/fi</code>.
+            </p>
+            <pre><code class="mustaches">&lt;if expr="{{payment}} === 'visa'" )&gt;
+  &lt;p&gt;VISA was selected!&lt;/p&gt;
+&lt;/fi&gt;
+            </code></pre>
+            <h3>For</h3>
+
+            <p>
+              Use <code>for</code> loops to render nodes multiple times. The syntax should be self explaining. The first
+              attribute <code>var</code> declares the index variable, <code>from</code> and <code>to</code> define the range
+              of the loop and <code>step</code> is used to determine the number by which the index variable increments each
+              cycle. The index variable (<code>j</code> in our case) can be accessed from anywhere inside the loop using
+              'mustaches'.
+            </p>
+
+            <pre><code class="mustaches">&lt;for var="j" from="0" to="{{max}}" step="2"&gt;
+  &lt;p&gt;Counting: {{ j }}&lt;/p&gt;
+&lt;/for&gt;
+            </code></pre>
+
+            <h3>Foreach</h3>
+            <p>
+              The <code>foreach</code> loop is the range based counterpart to the standard <code>for</code> loop. It takes
+              up to four attributes of which at least two must be provided. The <code>elem</code> attribute, which contains
+              the current list item (or contains the key to the variable that contains the current list item to be more precise)
+              and the list itself, specified in <code>in</code>. The other two optional attributes are
+              <code>idx</code> that stores the index of the current item and <code>arr</code>, which contains the array itself.
+            </p>
+
+            <pre><code class="mustaches">&lt;foreach elem="elem" idx="i" arr="arr" in="this.getState('animals')"&gt;
+  &lt;div class="cart-product"&gt;{{fruit.product}}&lt;/div&gt;
+  &lt;div class="cart-price"&gt;{{fruit.price}}&lt;/div&gt;
+  &lt;br&gt;
+&lt;/foreach&gt;
+            </code></pre>
+          </section>
+        </article>
+      </div>
+      <!-- #content-tutorials -->
+
+      <!-- Content for `chip8`. -->
+      <div id="content-chip8">
+        <h1>Projects</h1>
+        <article>
+          <section>
+            Chip-8
+          </section>
+        </article>
+      </div>
+      <!-- #content-projects -->
+
+      <!-- Content for `download`. -->
+      <div id="content-download">
+        <!-- Articles. -->
+        <article>
+          <section>
+            <h1>Download</h1>
+            <div class="section-meta-data">Click <a href="#">here</a> for more information on the individual projects.</div>
+            <table>
+              <tr>
+                <th>Project</th>
+                <th>GitHub</th>
+                <th>Download</th>
+              </tr>
+              <tr>
+                <td>Chip-8 Interpreter</td>
+                <td><a href="#">link</a></td>
+                <td>
+                  <a href="#" for="content-home">full</a>&nbsp;
+                  <a href="#" for="content-home">minified</a>
+                </td>
+              </tr>
+              <tr>
+                <td>TinyTemplatesJS</td>
+                <td><a href="#">link</a></td>
+                <td>
+                  <a href="#" for="content-home">full</a>&nbsp;
+                  <a href="#" for="content-home">minified</a>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </article>
+      </div>
+      <!-- #content-download -->
+
+    </main>
+
+    <!-- Footer. -->
+    <footer>
+      <hr>
+      <span class="left">
+        <a href="#">Linkedin</a>&emsp;
+        <a href="#">E-Mail</a>&emsp;
+        <a href="#">GitHub</a>&emsp;
+      </span>
+      <span class="right">(c) Paul Bernitz - 2018</span>
+    </footer>
+  </div>
+
+  <!-- Javascript. -->
+  <script src="js/tiny-templates.js"></script>
+  <script src="js/main.js" async></script>
+</body>
+
+</html>

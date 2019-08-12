@@ -1,0 +1,65 @@
+/*! pauwel-io | MIT License | https://github.com/pauwell/pauwell.github.io */
+
+body * {
+  /*font-family: "Raleway", sans-serif;*/
+  font-family: "Work Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+nav {
+  /*font-family: "Cardo", serif;*/
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+header {
+  font-size: 2.7em;
+  line-height: 3em;
+}
+
+nav {
+  text-align: center;
+  font-weight: bold;
+}
+
+nav > a {
+  line-height: 2em;
+
+  /* TODO is uppercase a good idea? */
+  /*text-transform: uppercase;*/
+}
+
+main article,
+main aside {
+  text-align: justify;
+  line-height: 1.6em;
+}
+
+/* Space between article-sections. */
+main article > section:not(:last-of-type) {
+  margin-bottom: 3.2em;
+}
+
+.section-meta-data {
+  font-style: italic;
+  font-size: small;
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: right;
+}
+
+pre > code,
+pre > code > span,
+pre > code > span * {
+  font-family: "Sans Mono", "Consolas", "Courier", monospace;
+  line-height: initial;
+}
